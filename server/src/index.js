@@ -17,12 +17,9 @@ if (!fs.existsSync(APP_CONFIG.uploadDir)) {
   fs.mkdirSync(APP_CONFIG.uploadDir, { recursive: true });
 }
 
-// CORS - allow in development, not needed in production (same origin)
+// CORS - allow all origins in production since we serve frontend from same server
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || APP_CONFIG.clientOrigins.includes(origin)) return callback(null, true);
-    return callback(new Error('Not allowed by CORS'));
-  },
+  origin: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
