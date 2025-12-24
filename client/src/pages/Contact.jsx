@@ -1,62 +1,142 @@
+import { motion } from 'framer-motion';
+import { Phone, MapPin, Clock, MessageCircle, Mail } from 'lucide-react';
+
 export default function Contact() {
+  const whatsappNumber = '201012345678';
+  const whatsappMessage = encodeURIComponent('مرحبًا، أود الاستفسار عن خدمات كاميرات المراقبة.');
+
   return (
-    <section className="py-16 px-6 max-w-4xl mx-auto">
-      <h1 className="section-title text-center mb-10">تواصل معنا</h1>
-      <div className="grid gap-8 md:grid-cols-2">
-        <div className="glass p-6">
-          <h2 className="text-xl font-semibold mb-4">معلومات التواصل</h2>
-          <ul className="space-y-4 text-muted">
-            <li className="flex gap-3 items-start">
-              <svg
-                className="w-6 h-6 text-accent flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+    <section className="pt-32 pb-20 px-6 min-h-screen">
+      <div className="container mx-auto max-w-5xl">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h1 className="section-title">تواصل معنا</h1>
+          <p className="section-subtitle">
+            نحن هنا لمساعدتك. تواصل معنا بأي طريقة تناسبك
+          </p>
+        </motion.div>
+
+        <div className="grid gap-8 lg:grid-cols-5">
+          {/* Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-2 space-y-6"
+          >
+            {/* Quick Contact Cards */}
+            <div className="card-premium p-6">
+              <h2 className="text-xl font-bold mb-6 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
+                  <Phone className="w-5 h-5 text-accent" />
+                </div>
+                معلومات التواصل
+              </h2>
+
+              <div className="space-y-5">
+                <ContactItem
+                  icon={Phone}
+                  label="الهاتف"
+                  value="+20 10 1234 5678"
+                  href="tel:+201012345678"
+                  dir="ltr"
                 />
-              </svg>
-              <span dir="ltr">+20 10 1234 5678</span>
-            </li>
-            <li className="flex gap-3 items-start">
-              <svg
-                className="w-6 h-6 text-accent flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0L6.343 16.657a8 8 0 1111.314 0z"
+                <ContactItem
+                  icon={MessageCircle}
+                  label="واتساب"
+                  value="+20 10 1234 5678"
+                  href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                  dir="ltr"
+                  highlight
                 />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                <ContactItem
+                  icon={Mail}
+                  label="البريد الإلكتروني"
+                  value="info@eye-security.com"
+                  href="mailto:info@eye-security.com"
                 />
-              </svg>
-              <span>١٢٣ شارع التحرير، القاهرة، مصر</span>
-            </li>
-          </ul>
-        </div>
-        <div className="glass overflow-hidden h-64 md:h-auto">
-          {/* Embed Google Map - Replace src with your actual location embed */}
-          <iframe
-            title="موقعنا"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.748068086426!2d31.235712215114997!3d30.04441998188226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145840c5736afc13%3A0x2c5bda3b5e3fa5c7!2sTahrir%20Square!5e0!3m2!1sen!2seg!4v1702372645723!5m2!1sen!2seg"
-            className="w-full h-full border-0"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+                <ContactItem
+                  icon={MapPin}
+                  label="العنوان"
+                  value="شارع عصام عيسى، قرية الراهبين، مركز سمنود، محافظة الغربية"
+                />
+                <ContactItem
+                  icon={Clock}
+                  label="ساعات العمل"
+                  value="السبت - الخميس: ٩ص - ٩م"
+                />
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <a
+              href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary w-full flex items-center justify-center gap-3 bg-green-600 hover:bg-green-500"
+              style={{ boxShadow: '0 0 20px rgba(34, 197, 94, 0.3)' }}
+            >
+              <MessageCircle className="w-5 h-5" />
+              <span>تواصل عبر واتساب</span>
+            </a>
+          </motion.div>
+
+          {/* Map */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-3"
+          >
+            <div className="card-premium p-2 h-full min-h-[400px]">
+              <div className="w-full h-full rounded-xl overflow-hidden">
+                <iframe
+                  title="موقعنا"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27234.77658033!2d31.2425!3d30.9567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f7c9d1e8f32c4d%3A0x1234567890abcdef!2z2KfZhNix2KfZh9io2YrZhtiMINiz2YXZhtmI2K8!5e0!3m2!1sar!2seg"
+                  className="w-full h-full min-h-[380px] border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
+}
+
+function ContactItem({ icon: Icon, label, value, href, dir, highlight }) {
+  const content = (
+    <div className={`flex items-start gap-4 p-3 rounded-xl transition-all duration-300 ${
+      href ? 'hover:bg-surface-light cursor-pointer' : ''
+    } ${highlight ? 'bg-green-500/10 border border-green-500/20' : ''}`}>
+      <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
+        highlight ? 'bg-green-500/20' : 'bg-surface-light'
+      }`}>
+        <Icon className={`w-5 h-5 ${highlight ? 'text-green-400' : 'text-accent'}`} />
+      </div>
+      <div className="flex-1 min-w-0">
+        <p className="text-muted text-sm mb-0.5">{label}</p>
+        <p className={`font-medium ${highlight ? 'text-green-400' : 'text-white'}`} dir={dir}>
+          {value}
+        </p>
+      </div>
+    </div>
+  );
+
+  if (href) {
+    return (
+      <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
+        {content}
+      </a>
+    );
+  }
+
+  return content;
 }

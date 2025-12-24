@@ -14,7 +14,7 @@ export const APP_CONFIG = {
   adminUsername: process.env.ADMIN_USERNAME || 'admin',
   adminPasswordHash:
     process.env.ADMIN_PASSWORD_HASH ||
-    '$2b$10$dXJ3se.kBwKsFcwTmyaKOeY.bakdUSHh3D1ynjUTduVdJN9WewtG6',
+    '$2a$10$6i/huJScjSnwYYe0HX9X2OhOBIrqQ3S4Xon/ClY47FXs2zNnIDDFu',
   sqlitePath: process.env.SQLITE_PATH || path.join(__dirname, '..', 'data.sqlite'),
   uploadDir: process.env.UPLOAD_DIR || path.join(__dirname, '..', 'uploads')
 };

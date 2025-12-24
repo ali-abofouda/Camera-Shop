@@ -4,20 +4,174 @@
 
 :root {
   color-scheme: dark;
+  --accent-rgb: 59, 130, 246;
+  --cyber-rgb: 34, 211, 238;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.5) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 3px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-primary text-white font-sans;
+  @apply bg-primary-dark text-white font-sans antialiased;
+  line-height: 1.7;
+  background-image: 
+    radial-gradient(ellipse at top, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(34, 211, 238, 0.05) 0%, transparent 50%);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
+/* Premium Glass Effect */
 .glass {
-  @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl;
+  @apply bg-surface backdrop-blur-xl border border-surface-border rounded-2xl;
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 0 rgba(148, 163, 184, 0.1);
 }
 
+.glass-subtle {
+  @apply bg-surface-light backdrop-blur-md border border-surface-border rounded-xl;
+}
+
+/* Card with glow border on hover */
+.card-premium {
+  @apply glass p-5 relative overflow-hidden transition-all duration-500;
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+}
+
+.card-premium::before {
+  content: '';
+  @apply absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, transparent 50%, rgba(34, 211, 238, 0.1) 100%);
+  z-index: 0;
+}
+
+.card-premium:hover::before {
+  @apply opacity-100;
+}
+
+.card-premium:hover {
+  @apply border-accent/30;
+  box-shadow: 
+    0 0 30px rgba(59, 130, 246, 0.15),
+    0 20px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
+}
+
+/* Section Title */
 .section-title {
-  @apply text-2xl md:text-3xl font-semibold mb-4 text-white;
+  @apply text-3xl md:text-4xl font-bold mb-6 text-white;
+  text-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
 }
 
+.section-subtitle {
+  @apply text-muted text-lg max-w-2xl mx-auto;
+  line-height: 1.8;
+}
+
+/* Premium Badge */
 .badge {
-  @apply px-3 py-1 rounded-full text-sm font-semibold;
+  @apply px-4 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badge-available {
+  @apply bg-emerald-500/20 text-emerald-300 border-emerald-500/30;
+}
+
+.badge-unavailable {
+  @apply bg-red-500/20 text-red-300 border-red-500/30;
+}
+
+/* Premium Button */
+.btn-primary {
+  @apply relative bg-accent hover:bg-accent-glow text-white px-8 py-3.5 rounded-xl font-semibold transition-all duration-300;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  @apply glass text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 border-accent/30;
+}
+
+.btn-secondary:hover {
+  @apply bg-accent/10 border-accent/50;
+}
+
+/* Input Styles */
+.input-premium {
+  @apply w-full bg-surface border border-surface-border rounded-xl p-4 text-white placeholder-muted/60;
+  @apply focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20 transition-all duration-300;
+  backdrop-filter: blur(10px);
+}
+
+/* Image zoom effect */
+.img-zoom {
+  @apply overflow-hidden rounded-xl;
+}
+
+.img-zoom img {
+  @apply transition-transform duration-700 ease-out;
+}
+
+.img-zoom:hover img {
+  transform: scale(1.1);
+}
+
+/* Pulse animation for WhatsApp */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.whatsapp-pulse::before {
+  content: '';
+  @apply absolute inset-0 rounded-full bg-green-500;
+  animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Gradient Text */
+.gradient-text {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+}
+
+.gradient-text-accent {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, #60a5fa 0%, #22d3ee 100%);
+}
+
+/* Divider with glow */
+.divider-glow {
+  @apply h-px w-full;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
 }
