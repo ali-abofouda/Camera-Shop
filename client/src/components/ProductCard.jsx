@@ -17,16 +17,16 @@ export default function ProductCard({ product, index = 0 }) {
       className="card-premium group"
     >
       {/* Image Container with Zoom Effect */}
-      <div className="img-zoom relative mb-4">
+      <div className="img-zoom relative mb-3 sm:mb-4">
         {imageSrc ? (
           <img
             src={imageSrc}
             alt={product.name_ar}
-            className="h-48 w-full object-cover"
+            className="h-36 sm:h-48 w-full object-cover"
           />
         ) : (
-          <div className="h-48 w-full bg-gradient-to-br from-primary-light to-primary flex items-center justify-center">
-            <Eye className="w-16 h-16 text-muted/30" strokeWidth={1} />
+          <div className="h-36 sm:h-48 w-full bg-gradient-to-br from-primary-light to-primary flex items-center justify-center">
+            <Eye className="w-12 sm:w-16 h-12 sm:h-16 text-muted/30" strokeWidth={1} />
           </div>
         )}
         {/* Overlay on hover */}
@@ -35,10 +35,10 @@ export default function ProductCard({ product, index = 0 }) {
 
       {/* Content */}
       <div className="relative z-10">
-        <h3 className="text-lg font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">
+        <h3 className="text-base sm:text-lg font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">
           {product.name_ar}
         </h3>
-        <p className="text-muted text-sm leading-relaxed mb-4 line-clamp-2">
+        <p className="text-muted text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-2">
           {product.description_ar}
         </p>
         

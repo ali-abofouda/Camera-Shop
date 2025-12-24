@@ -28,23 +28,23 @@ export default function Home() {
                 <span>الأمان يبدأ من هنا</span>
               </div>
 
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
                 <span className="gradient-text">جاد للمراقبة</span>
                 <br />
-                <span className="text-white">كاميرات وأنظمة أمنية</span>
+                <span className="text-white text-2xl sm:text-3xl md:text-5xl lg:text-6xl">كاميرات وأنظمة أمنية</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-muted max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed px-4 sm:px-0">
                 نوفر لك أحدث أنظمة المراقبة والكاميرات الأمنية بأعلى جودة وأسعار منافسة.
                 خدمة احترافية في الغربية وجميع أنحاء مصر.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/products" className="btn-primary inline-flex items-center justify-center gap-2">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
+                <Link to="/products" className="btn-primary inline-flex items-center justify-center gap-2 text-sm sm:text-base py-3 sm:py-4">
                   <span>تصفح المنتجات</span>
-                  <ChevronLeft className="w-5 h-5" />
+                  <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Link>
-                <Link to="/contact" className="btn-secondary inline-flex items-center justify-center gap-2">
+                <Link to="/contact" className="btn-secondary inline-flex items-center justify-center gap-2 text-sm sm:text-base py-3 sm:py-4">
                   <span>تواصل معنا</span>
                 </Link>
               </div>
@@ -55,7 +55,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="grid grid-cols-3 gap-6 mt-20 max-w-2xl mx-auto"
+              className="grid grid-cols-3 gap-3 sm:gap-6 mt-12 sm:mt-20 max-w-2xl mx-auto px-4 sm:px-0"
             >
               {[
                 { value: '+500', label: 'عميل سعيد' },
@@ -63,8 +63,8 @@ export default function Home() {
                 { value: '24/7', label: 'دعم فني' }
               ].map((stat, i) => (
                 <div key={i} className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold gradient-text-accent">{stat.value}</div>
-                  <div className="text-muted text-sm mt-1">{stat.label}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text-accent">{stat.value}</div>
+                  <div className="text-muted text-xs sm:text-sm mt-1">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -89,7 +89,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 px-6 relative">
+      <section className="py-12 sm:py-24 px-4 sm:px-6 relative">
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -124,7 +124,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 px-6 relative overflow-hidden">
+      <section className="py-12 sm:py-24 px-4 sm:px-6 relative overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent" />
         
@@ -171,7 +171,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6">
+      <section className="py-12 sm:py-24 px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -179,13 +179,13 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="container mx-auto max-w-4xl"
         >
-          <div className="card-premium p-10 md:p-16 text-center relative overflow-hidden">
+          <div className="card-premium p-6 sm:p-10 md:p-16 text-center relative overflow-hidden">
             {/* Decorative elements */}
             <div className="absolute top-0 left-0 w-32 h-32 bg-accent/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 right-0 w-40 h-40 bg-accent-cyber/10 rounded-full blur-3xl" />
             
             <div className="relative z-10">
-              <h2 className="text-2xl md:text-4xl font-bold mb-4">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-bold mb-4">
                 جاهز لتأمين منشأتك؟
               </h2>
               <p className="text-muted mb-8 max-w-xl mx-auto">

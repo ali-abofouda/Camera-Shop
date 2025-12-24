@@ -6,22 +6,22 @@ export default function Contact() {
   const whatsappMessage = encodeURIComponent('مرحبًا، أود الاستفسار عن خدمات كاميرات المراقبة.');
 
   return (
-    <section className="pt-32 pb-20 px-6 min-h-screen">
+    <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 min-h-screen">
       <div className="container mx-auto max-w-5xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h1 className="section-title">تواصل معنا</h1>
+          <h1 className="section-title text-2xl sm:text-3xl md:text-4xl">تواصل معنا</h1>
           <p className="section-subtitle">
             نحن هنا لمساعدتك. تواصل معنا بأي طريقة تناسبك
           </p>
         </motion.div>
 
-        <div className="grid gap-8 lg:grid-cols-5">
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-5">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -30,8 +30,8 @@ export default function Contact() {
             className="lg:col-span-2 space-y-6"
           >
             {/* Quick Contact Cards */}
-            <div className="card-premium p-6">
-              <h2 className="text-xl font-bold mb-6 flex items-center gap-3">
+            <div className="card-premium p-4 sm:p-6">
+              <h2 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
                   <Phone className="w-5 h-5 text-accent" />
                 </div>

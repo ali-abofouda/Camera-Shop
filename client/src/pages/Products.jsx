@@ -22,16 +22,16 @@ export default function Products() {
   });
 
   return (
-    <section className="pt-32 pb-20 px-6 min-h-screen">
+    <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 min-h-screen">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
-          <h1 className="section-title">منتجاتنا</h1>
+          <h1 className="section-title text-2xl sm:text-3xl md:text-4xl">منتجاتنا</h1>
           <p className="section-subtitle">
             اكتشف مجموعتنا المتنوعة من كاميرات المراقبة وأنظمة الحماية
           </p>
@@ -42,7 +42,7 @@ export default function Products() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex justify-center gap-3 mb-10"
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10"
         >
           {[
             { value: 'all', label: 'الكل' },
@@ -52,7 +52,7 @@ export default function Products() {
             <button
               key={tab.value}
               onClick={() => setFilter(tab.value)}
-              className={`px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${
+              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
                 filter === tab.value
                   ? 'bg-accent text-white shadow-glow'
                   : 'glass-subtle text-muted hover:text-white hover:border-accent/30'
@@ -81,7 +81,7 @@ export default function Products() {
             <p className="text-muted text-lg">لا توجد منتجات حالياً</p>
           </motion.div>
         ) : (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {filteredProducts.map((p, index) => (
               <ProductCard key={p.id} product={p} index={index} />
             ))}

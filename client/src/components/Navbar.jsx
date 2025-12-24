@@ -30,7 +30,7 @@ export default function Navbar() {
           : 'py-5 bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
           <div className="relative">
             <div className="absolute inset-0 bg-accent rounded-xl blur-lg opacity-50 group-hover:opacity-80 transition-opacity" />

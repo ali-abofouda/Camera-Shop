@@ -7,8 +7,8 @@ export default function Footer() {
       {/* Glow effect at top */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
       
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid gap-10 md:grid-cols-3">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="grid gap-8 sm:gap-10 md:grid-cols-3">
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center gap-3 mb-4">
@@ -65,8 +65,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-10 pt-6 border-t border-surface-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted text-sm">
+        <div className="mt-8 sm:mt-10 pt-6 border-t border-surface-border flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-muted text-xs sm:text-sm text-center">
             &copy; {new Date().getFullYear()} جاد للمراقبة. جميع الحقوق محفوظة.
           </p>
           <div className="flex gap-6">
